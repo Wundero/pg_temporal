@@ -18,16 +18,16 @@ use serde::{Deserialize, Serialize};
     PartialOrd,
 )]
 #[inoutfuncs]
-struct Temporal(Zoned);
+struct ZonedDateTime(Zoned);
 
-impl InOutFuncs for Temporal {
+impl InOutFuncs for ZonedDateTime {
     fn input(input: &core::ffi::CStr) -> Self
     where
         Self: Sized,
     {
         let input = input.to_str().unwrap().to_owned();
         let zdt: Zoned = input.parse().unwrap();
-        Temporal(zdt)
+        ZonedDateTime(zdt)
     }
 
     fn output(&self, buffer: &mut pgrx::StringInfo) {
@@ -36,6 +36,6 @@ impl InOutFuncs for Temporal {
 }
 
 #[pg_extern]
-fn temporal_now() -> Temporal {
-    Temporal(Zoned::now())
+fn zdt_now() -> ZonedDateTime {
+    ZonedDateTime(Zoned::now())
 }
