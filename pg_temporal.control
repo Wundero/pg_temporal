@@ -1,0 +1,6 @@
+comment = 'pg_temporal:  Created by pgrx'
+default_version = '@CARGO_VERSION@'
+module_pathname = '$libdir/pg_temporal'
+relocatable = false
+superuser = true
+trusted = false
