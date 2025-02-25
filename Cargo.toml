@@ -1,6 +1,6 @@
 [package]
 name = "pg_temporal"
-version = "0.0.0"
+version = "1.0.0"
 edition = "2021"
 
 [lib]
@@ -21,9 +21,9 @@ pg17 = ["pgrx/pg17", "pgrx-tests/pg17"]
 pg_test = []
 
 [dependencies]
-jiff = { version = "0.2.1", features = ["serde"] }
+jiff = { version = "=0.2.1", features = ["serde"] }
 pgrx = "=0.13.0"
-serde = "1.0.218"
+serde = "=1.0.218"
 
 [dev-dependencies]
 pgrx-tests = "=0.13.0"
